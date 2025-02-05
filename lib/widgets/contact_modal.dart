@@ -38,17 +38,17 @@ class ContactModal extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          if (contact.phone != null)
+          if (contact.phone != null && contact.phone!.isNotEmpty)
             Text(
               'Phone: ${contact.phone}',
               style: bodyMediumStyle,
             ),
-          if (contact.email != null)
+          if (contact.email != null && contact.email!.isNotEmpty)
             Text(
               'Email: ${contact.email}',
               style: bodyMediumStyle,
             ),
-          if (contact.birthDate != null)
+          if (contact.birthDate != null && contact.birthDate! != DateTime(1))
             Text(
               'Birthday: ${contact.birthDate!.day}.${contact.birthDate!.month}.${contact.birthDate!.year}',
               style: bodyMediumStyle,

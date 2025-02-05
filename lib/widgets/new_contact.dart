@@ -18,7 +18,7 @@ class _NewContactState extends State<NewContact> {
   var surname = '';
   var phone = '';
   var email = '';
-  DateTime _birthDate = DateTime.now();
+  DateTime _birthDate = DateTime(1);
 
   void _pickBirthDate() async {
     DateTime? pickedDate = await showDatePicker(
@@ -96,7 +96,7 @@ class _NewContactState extends State<NewContact> {
                 onPressed: _pickBirthDate,
               ),
               SizedBox(width: 8),
-              Text('Birthday: ${formatDateTime(_birthDate)}'),
+              Text('Select birthday'),
             ],
           ),
           const SizedBox(height: 16),
