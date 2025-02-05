@@ -18,7 +18,7 @@ class _ContactsBookState extends State<ContactsBook> {
       id: 1,
       name: 'Lewis',
       surname: 'Hamilton',
-      birthDate: DateTime(2025, 2, 5),
+      birthDate: DateTime.now(),
       phone: '123456',
       email: 'test@mail.com',
     ),

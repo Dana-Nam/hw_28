@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../helpers/format_datetime.dart';
 import '../models/contact.dart';
 
 class ContactModal extends StatelessWidget {
@@ -50,7 +51,7 @@ class ContactModal extends StatelessWidget {
             ),
           if (contact.birthDate != null && contact.birthDate! != DateTime(1))
             Text(
-              'Birthday: ${contact.birthDate!.day}.${contact.birthDate!.month}.${contact.birthDate!.year}',
+              'Birthday: ${formatDateTime(contact.birthDate!)}',
               style: bodyMediumStyle,
             ),
           SizedBox(height: 24),
