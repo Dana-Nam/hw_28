@@ -13,8 +13,9 @@ class ContactsBook extends StatefulWidget {
 
 class _ContactsBookState extends State<ContactsBook> {
   List<Contact> contacts = [
-    Contact(name: 'Bill'),
-    Contact(name: 'John', surname: 'Brown', birthDate: DateTime(2025, 2, 5)),
+    Contact(
+        id: 1, name: 'John', surname: 'Brown', birthDate: DateTime(2025, 2, 5)),
+    Contact(id: 2, name: 'Dana')
   ];
 
   void toggleContact(int index) {}
@@ -32,6 +33,19 @@ class _ContactsBookState extends State<ContactsBook> {
   }
 
   void openAddContact() {
+    int nextId;
+    if (contacts.isEmpty) {
+      nextId = 1;
+    } else {
+      int maxId = contacts.first.id;
+      for (var contact in contacts) {
+        if (contact.id > maxId) {
+          maxId = contact.id;
+        }
+      }
+      nextId = maxId + 1;
+    }
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -39,7 +53,10 @@ class _ContactsBookState extends State<ContactsBook> {
         padding: EdgeInsets.only(bottom: MediaQuery.of(ctx).viewInsets.bottom),
         child: Wrap(
           children: [
-            NewContact(onContactCreated: addContact),
+            NewContact(
+              onContactCreated: addContact,
+              id: nextId,
+            ),
           ],
         ),
       ),

@@ -17,14 +17,31 @@ class ContactItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final bodyLargeStyle = theme.textTheme.bodyLarge!;
+    final backgroundColor = theme.colorScheme.surface.withValues(alpha: 255);
+    final borderRadius = BorderRadius.circular(10);
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: borderRadius,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            offset: Offset(2, 4),
+            blurRadius: 6,
+            spreadRadius: 0,
+          ),
+        ],
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
+              Text('${contact.id}', style: bodyLargeStyle),
+              SizedBox(width: 8),
               Text(contact.name, style: bodyLargeStyle),
               SizedBox(width: 8),
               if (contact.surname != null && contact.surname!.isNotEmpty)

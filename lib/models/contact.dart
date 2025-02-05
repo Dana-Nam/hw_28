@@ -1,4 +1,5 @@
 class Contact {
+  final int id;
   final String name;
   final String? surname;
   final String? phone;
@@ -6,6 +7,7 @@ class Contact {
   final DateTime? birthDate;
 
   Contact({
+    required this.id,
     required this.name,
     this.surname,
     this.phone,

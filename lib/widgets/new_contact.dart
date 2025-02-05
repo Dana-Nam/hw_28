@@ -4,8 +4,10 @@ import '../models/contact.dart';
 
 class NewContact extends StatefulWidget {
   final void Function(Contact newContact) onContactCreated;
+  final int id;
 
-  const NewContact({super.key, required this.onContactCreated});
+  const NewContact(
+      {super.key, required this.onContactCreated, required this.id});
 
   @override
   State<NewContact> createState() => _NewContactState();
@@ -41,6 +43,7 @@ class _NewContactState extends State<NewContact> {
   void onSaved() {
     if (name.trim().isEmpty) return;
     final newContact = Contact(
+      id: widget.id,
       name: name.trim(),
       surname: surname.trim(),
       phone: phone.trim(),
