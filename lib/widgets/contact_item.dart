@@ -26,13 +26,18 @@ class ContactItem extends StatelessWidget {
           Row(
             children: [
               Text(contact.name, style: bodyLargeStyle),
+              SizedBox(width: 8),
               if (contact.surname != null && contact.surname!.isNotEmpty)
                 Text('${contact.surname}', style: bodyLargeStyle),
             ],
           ),
           Row(
             children: [
-              Text('BD'),
+              if (contact.isBirthday)
+                Icon(
+                  Icons.cake,
+                  color: Colors.yellowAccent,
+                ),
               IconButton(
                 icon: Icon(Icons.delete, color: theme.colorScheme.error),
                 onPressed: onDelete,
