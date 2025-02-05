@@ -17,7 +17,7 @@ class _ContactsBookState extends State<ContactsBook> {
     Contact(
       id: 1,
       name: 'Lewis',
-      surname: 'Hamillton',
+      surname: 'Hamilton',
       birthDate: DateTime(2025, 2, 5),
       phone: '123456',
       email: 'test@mail.com',
@@ -34,6 +34,14 @@ class _ContactsBookState extends State<ContactsBook> {
       name: 'Charles',
       surname: 'Leclerc',
       birthDate: DateTime(2025, 6, 5),
+      phone: '123456',
+      email: 'test@mail.com',
+    ),
+    Contact(
+      id: 4,
+      name: 'Fernando',
+      surname: 'Alonso',
+      birthDate: DateTime(2021, 1, 6),
       phone: '123456',
       email: 'test@mail.com',
     ),
