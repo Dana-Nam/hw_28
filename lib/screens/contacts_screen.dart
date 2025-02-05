@@ -5,7 +5,7 @@ import '../models/contact.dart';
 
 class ContactsScreen extends StatelessWidget {
   final List<Contact> contacts;
-  final void Function(int index) onToggle;
+  final void Function(Contact) onToggle;
   final void Function(int index) onDelete;
 
   const ContactsScreen(
@@ -23,7 +23,7 @@ class ContactsScreen extends StatelessWidget {
           children: contacts
               .map((contact) => ContactItem(
                     contact: contact,
-                    onToggle: () => onToggle(contacts.indexOf(contact)),
+                    onToggle: () => onToggle(contact),
                     onDelete: () => onDelete(contacts.indexOf(contact)),
                   ))
               .toList(),

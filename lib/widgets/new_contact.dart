@@ -18,7 +18,7 @@ class _NewContactState extends State<NewContact> {
   var surname = '';
   var phone = '';
   var email = '';
-  DateTime _birthDate = DateTime(1);
+  DateTime _birthDate = DateTime.now();
 
   void _pickBirthDate() async {
     DateTime? pickedDate = await showDatePicker(
