@@ -16,16 +16,18 @@ class ContactsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: Column(
-        children: contacts
-            .map((contact) => ContactItem(
-                  contact: contact,
-                  onToggle: () => onToggle(contacts.indexOf(contact)),
-                  onDelete: () => onDelete(contacts.indexOf(contact)),
-                ))
-            .toList(),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Column(
+          children: contacts
+              .map((contact) => ContactItem(
+                    contact: contact,
+                    onToggle: () => onToggle(contacts.indexOf(contact)),
+                    onDelete: () => onDelete(contacts.indexOf(contact)),
+                  ))
+              .toList(),
+        ),
       ),
     );
   }

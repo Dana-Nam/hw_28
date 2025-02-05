@@ -16,7 +16,7 @@ class _NewContactState extends State<NewContact> {
   var surname = '';
   var phone = '';
   var email = '';
-  DateTime _birthDate = DateTime.now();
+  DateTime _birthDate = DateTime(1);
 
   void _pickBirthDate() async {
     DateTime? pickedDate = await showDatePicker(
@@ -108,7 +108,7 @@ class _NewContactState extends State<NewContact> {
               const SizedBox(width: 16),
               Expanded(
                 child: ElevatedButton(
-                  onPressed: onSaved,
+                  onPressed: name.trim().isEmpty ? null : onSaved,
                   child: const Text('Add'),
                 ),
               ),
